@@ -1,0 +1,430 @@
+--[[ how esp works:
+    [seu comentário original aqui...]
+]]
+
+-- SISTEMA DE KEY (antes de carregar o ESP)
+local CollectionService = game:GetService("CollectionService")
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+local G2L = {}
+
+-- Defina a key correta aqui!
+local CORRECT_KEY = "izaque apelão"
+
+G2L["ScreenGui_1"] = Instance.new("ScreenGui", LocalPlayer:WaitForChild("PlayerGui"))
+G2L["ScreenGui_1"].ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+CollectionService:AddTag(G2L["ScreenGui_1"], "main")
+G2L["ScreenGui_1"].Enabled = true
+
+G2L["Frame_2"] = Instance.new("Frame", G2L["ScreenGui_1"])
+G2L["Frame_2"].BorderSizePixel = 0
+G2L["Frame_2"].BackgroundColor3 = Color3.fromRGB(0,0,0)
+G2L["Frame_2"].Size = UDim2.new(0.32297,0,0.45989,0)
+G2L["Frame_2"].Position = UDim2.new(0.32468,0,0.24527,0)
+
+G2L["Titulo_3"] = Instance.new("TextLabel", G2L["Frame_2"])
+G2L["Titulo_3"].TextWrapped = true
+G2L["Titulo_3"].TextScaled = true
+G2L["Titulo_3"].BackgroundTransparency = 1
+G2L["Titulo_3"].TextColor3 = Color3.fromRGB(255,255,255)
+G2L["Titulo_3"].Text = "Sistema de key (WAUniversalESP)"
+G2L["Titulo_3"].Position = UDim2.new(-0.04762,0,0.1,0)
+G2L["Titulo_3"].Size = UDim2.new(1.07407,0,0.325,0)
+G2L["Titulo_3"].FontFace = Font.new([[rbxasset://fonts/families/FredokaOne.json]])
+
+Instance.new("UICorner", G2L["Frame_2"])
+local stroke = Instance.new("UIStroke", G2L["Frame_2"])
+stroke.Thickness = 2
+stroke.Color = Color3.fromRGB(10,200,255)
+local aspect = Instance.new("UIAspectRatioConstraint", G2L["Frame_2"])
+aspect.AspectRatio = 1.575
+
+G2L["TextLabel_7"] = Instance.new("TextLabel", G2L["Frame_2"])
+G2L["TextLabel_7"].TextWrapped = true
+G2L["TextLabel_7"].TextScaled = true
+G2L["TextLabel_7"].BackgroundTransparency = 1
+G2L["TextLabel_7"].TextColor3 = Color3.fromRGB(255,252,252)
+G2L["TextLabel_7"].Text = "Key no nosso discord"
+G2L["TextLabel_7"].Position = UDim2.new(0.08466,0,0.63333,0)
+G2L["TextLabel_7"].Size = UDim2.new(0.79365,0,0.09167,0)
+G2L["TextLabel_7"].FontFace = Font.new([[rbxasset://fonts/families/FredokaOne.json]])
+
+G2L["ColocarLinkDaKeyDiscord_8"] = Instance.new("TextButton", G2L["Frame_2"])
+G2L["ColocarLinkDaKeyDiscord_8"].TextWrapped = true
+G2L["ColocarLinkDaKeyDiscord_8"].TextScaled = true
+G2L["ColocarLinkDaKeyDiscord_8"].TextColor3 = Color3.fromRGB(255,255,255)
+G2L["ColocarLinkDaKeyDiscord_8"].BackgroundColor3 = Color3.fromRGB(40,106,255)
+G2L["ColocarLinkDaKeyDiscord_8"].Text = "Copiar Link da key (Discord) 🔗"
+G2L["ColocarLinkDaKeyDiscord_8"].Position = UDim2.new(0.12169,0,0.75833,0)
+G2L["ColocarLinkDaKeyDiscord_8"].Size = UDim2.new(0.60847,0,0.175,0)
+Instance.new("UICorner", G2L["ColocarLinkDaKeyDiscord_8"])
+
+G2L["ClicarParaEnviarKey_a"] = Instance.new("TextButton", G2L["Frame_2"])
+G2L["ClicarParaEnviarKey_a"].TextWrapped = true
+G2L["ClicarParaEnviarKey_a"].TextSize = 20
+G2L["ClicarParaEnviarKey_a"].BackgroundColor3 = Color3.fromRGB(81,81,81)
+G2L["ClicarParaEnviarKey_a"].Text = "▶️"
+G2L["ClicarParaEnviarKey_a"].Position = UDim2.new(0.77249,0,0.75833,0)
+G2L["ClicarParaEnviarKey_a"].Size = UDim2.new(0.16402,0,0.16667,0)
+Instance.new("UICorner", G2L["ClicarParaEnviarKey_a"])
+
+G2L["PutKey_c"] = Instance.new("TextBox", G2L["Frame_2"])
+G2L["PutKey_c"].CursorPosition = -1
+G2L["PutKey_c"].TextWrapped = true
+G2L["PutKey_c"].TextScaled = true
+G2L["PutKey_c"].BackgroundColor3 = Color3.fromRGB(255,255,255)
+G2L["PutKey_c"].Size = UDim2.new(0.73016,0,0.16667,0)
+G2L["PutKey_c"].Position = UDim2.new(0.12698,0,0.45,0)
+Instance.new("UICorner", G2L["PutKey_c"])
+
+local keyBox = G2L["PutKey_c"]
+local sendButton = G2L["ClicarParaEnviarKey_a"]
+local discordButton = G2L["ColocarLinkDaKeyDiscord_8"]
+local screenGui = G2L["ScreenGui_1"]
+
+sendButton.MouseButton1Click:Connect(function()
+    local playerKey = keyBox.Text
+    if playerKey == CORRECT_KEY then
+        print("Key correta! Abrindo seu Hub...")
+        screenGui:Destroy() -- destrói a tela da key
+
+        -- ==== ESP + AIMBOT + RAINBOW/LGBT SÓ LIBERADO SE A KEY FOR CORRETA ====
+        -- Seu script ESP começa aqui!
+
+        local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
+        local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/SaveManager.lua"))()
+        local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua"))()
+        local Players = game:GetService("Players")
+        local RunService = game:GetService("RunService")
+        local UserInputService = game:GetService("UserInputService")
+        local Camera = workspace.CurrentCamera
+        local LocalPlayer = Players.LocalPlayer
+
+        local Drawings = { ESP = {} }
+        local Colors = {
+            Enemy = Color3.fromRGB(255, 25, 25),
+            Ally = Color3.fromRGB(25, 255, 25),
+            Health = Color3.fromRGB(0, 255, 0),
+            Skeleton = Color3.fromRGB(255,255,255),
+            Rainbow = nil
+        }
+        local Settings = {
+            Enabled = false,
+            BoxESP = false,
+            BoxStyle = "Corner",
+            BoxThickness = 2,
+            BoxFillTransparency = 0.5,
+            TracerESP = false,
+            TracerOrigin = "Bottom",
+            HealthESP = false,
+            HealthStyle = "Bar",
+            HealthTextSuffix = "HP",
+            SkeletonESP = false,
+            SkeletonColor = Colors.Skeleton,
+            SkeletonThickness = 1.5,
+            SkeletonTransparency = 1,
+            MaxDistance = 1000,
+            TextSize = 14,
+            RainbowEnabled = false,
+            RainbowBoxes = false,
+            RainbowTracers = false,
+            RainbowText = false,
+            RainbowSpeed = 1,
+            RefreshRate = 1/144,
+        }
+
+        local Window = Fluent:CreateWindow({
+            Title = "Script ESP",
+            SubTitle = "by izaque",
+            TabWidth = 160,
+            Size = UDim2.fromOffset(580, 460),
+            Acrylic = false,
+            Theme = "Dark",
+            MinimizeKey = Enum.KeyCode.LeftControl
+        })
+
+        local Tabs = {
+            ESP = Window:AddTab({ Title = "ESP", Icon = "eye" }),
+            Settings = Window:AddTab({ Title = "Settings", Icon = "settings" }),
+            Config = Window:AddTab({ Title = "Config", Icon = "save" }),
+            Aimbot = Window:AddTab({ Title = "Aimbot", Icon = "target" })
+        }
+
+        -- Effects section for Rainbow/LGBT mode
+        do
+            local EffectsSection = Tabs.Settings:AddSection("Effects")
+            local RainbowToggle = EffectsSection:AddToggle("RainbowEnabled", { Title = "Rainbow Mode (LGBT)", Default = false })
+            RainbowToggle:OnChanged(function() Settings.RainbowEnabled = RainbowToggle.Value end)
+            local RainbowSpeed = EffectsSection:AddSlider("RainbowSpeed", { Title = "Rainbow Speed", Default = 1, Min = 0.1, Max = 5, Rounding = 1 })
+            RainbowSpeed:OnChanged(function(Value) Settings.RainbowSpeed = Value end)
+            local RainbowOptions = EffectsSection:AddDropdown("RainbowParts", { Title = "Rainbow Parts", Values = {"All", "Box Only", "Tracers Only"}, Default = "All", Multi = false })
+            RainbowOptions:OnChanged(function(Value)
+                Settings.RainbowBoxes = (Value == "All" or Value == "Box Only")
+                Settings.RainbowTracers = (Value == "All" or Value == "Tracers Only")
+            end)
+        end
+
+        -- Função para cor arco-íris (LGBT)
+        local function getRainbowColor()
+            return Color3.fromHSV((tick() * Settings.RainbowSpeed) % 1, 1, 1)
+        end
+
+        -- Aimbot Tab
+        local AimbotSettings = {
+            Enabled = false,
+            AimPart = "Head",
+            HoldKey = Enum.UserInputType.MouseButton2
+        }
+        local function GetClosestEnemyToCursor()
+            local closestPlayer, closestDist = nil, math.huge
+            for _, player in ipairs(Players:GetPlayers()) do
+                if player ~= LocalPlayer and player.Character and player.Character:FindFirstChild(AimbotSettings.AimPart) then
+                    local part = player.Character[AimbotSettings.AimPart]
+                    local screenPos, onScreen = Camera:WorldToViewportPoint(part.Position)
+                    if onScreen then
+                        local mousePos = UserInputService:GetMouseLocation()
+                        local dist = (Vector2.new(screenPos.X, screenPos.Y) - mousePos).Magnitude
+                        if dist < closestDist then
+                            closestDist = dist
+                            closestPlayer = player
+                        end
+                    end
+                end
+            end
+            return closestPlayer
+        end
+        local aiming = false
+        UserInputService.InputBegan:Connect(function(input, gp)
+            if gp then return end
+            if input.UserInputType == AimbotSettings.HoldKey then aiming = true end
+        end)
+        UserInputService.InputEnded:Connect(function(input, gp)
+            if gp then return end
+            if input.UserInputType == AimbotSettings.HoldKey then aiming = false end
+        end)
+        RunService.RenderStepped:Connect(function()
+            if AimbotSettings.Enabled and aiming then
+                local target = GetClosestEnemyToCursor()
+                if target and target.Character and target.Character:FindFirstChild(AimbotSettings.AimPart) then
+                    local part = target.Character[AimbotSettings.AimPart]
+                    Camera.CFrame = CFrame.new(Camera.CFrame.Position, part.Position)
+                end
+            end
+        end)
+        do
+            local AimbotSection = Tabs.Aimbot:AddSection("Aimbot")
+            local AimbotToggle = AimbotSection:AddToggle("AimbotEnabled", {
+                Title = "Aimbot (Grudar Cabeça)",
+                Default = false
+            })
+            AimbotToggle:OnChanged(function()
+                AimbotSettings.Enabled = AimbotToggle.Value
+            end)
+        end
+
+        -- ESP Menu
+        do
+            local MainSection = Tabs.ESP:AddSection("Main ESP")
+            local EnabledToggle = MainSection:AddToggle("Enabled", { Title = "Enable ESP", Default = false })
+            EnabledToggle:OnChanged(function() Settings.Enabled = EnabledToggle.Value end)
+
+            local BoxSection = Tabs.ESP:AddSection("Box ESP")
+            local BoxESPToggle = BoxSection:AddToggle("BoxESP", { Title = "Box ESP", Default = false })
+            BoxESPToggle:OnChanged(function() Settings.BoxESP = BoxESPToggle.Value end)
+            local BoxStyleDropdown = BoxSection:AddDropdown("BoxStyle", { Title = "Box Style", Values = {"Corner", "Full", "ThreeD"}, Default = "Corner" })
+            BoxStyleDropdown:OnChanged(function(Value) Settings.BoxStyle = Value end)
+            local BoxThickness = BoxSection:AddSlider("BoxThickness", { Title = "Box Thickness", Default = 2, Min = 1, Max = 5, Rounding = 1 })
+            BoxThickness:OnChanged(function(Value) Settings.BoxThickness = Value end)
+            local BoxTransparency = BoxSection:AddSlider("BoxTransparency", { Title = "Box Transparency", Default = 0.5, Min = 0, Max = 1, Rounding = 2 })
+            BoxTransparency:OnChanged(function(Value) Settings.BoxFillTransparency = Value end)
+
+            local TracerSection = Tabs.ESP:AddSection("Tracer ESP")
+            local TracerESPToggle = TracerSection:AddToggle("TracerESP", { Title = "Tracer ESP", Default = false })
+            TracerESPToggle:OnChanged(function() Settings.TracerESP = TracerESPToggle.Value end)
+            local TracerOriginDropdown = TracerSection:AddDropdown("TracerOrigin", { Title = "Tracer Origin", Values = {"Bottom", "Top", "Mouse", "Center"}, Default = "Bottom" })
+            TracerOriginDropdown:OnChanged(function(Value) Settings.TracerOrigin = Value end)
+
+            local HealthSection = Tabs.ESP:AddSection("Health ESP")
+            local HealthESPToggle = HealthSection:AddToggle("HealthESP", { Title = "Health ESP", Default = false })
+            HealthESPToggle:OnChanged(function() Settings.HealthESP = HealthESPToggle.Value end)
+            local HealthStyleDropdown = HealthSection:AddDropdown("HealthStyle", { Title = "Health Style", Values = {"Bar", "Text", "Both"}, Default = "Bar" })
+            HealthStyleDropdown:OnChanged(function(Value) Settings.HealthStyle = Value end)
+
+            local SkeletonSection = Tabs.ESP:AddSection("Skeleton ESP")
+            local SkeletonESPToggle = SkeletonSection:AddToggle("SkeletonESP", { Title = "Skeleton ESP", Default = false })
+            SkeletonESPToggle:OnChanged(function() Settings.SkeletonESP = SkeletonESPToggle.Value end)
+            local SkeletonColor = SkeletonSection:AddColorpicker("SkeletonColor", { Title = "Skeleton Color", Default = Settings.SkeletonColor })
+            SkeletonColor:OnChanged(function(Value) Settings.SkeletonColor = Value end)
+            local SkeletonThickness = SkeletonSection:AddSlider("SkeletonThickness", { Title = "Line Thickness", Default = 1.5, Min = 1, Max = 3, Rounding = 1 })
+            SkeletonThickness:OnChanged(function(Value) Settings.SkeletonThickness = Value end)
+            local SkeletonTransparency = SkeletonSection:AddSlider("SkeletonTransparency", { Title = "Transparency", Default = 1, Min = 0, Max = 1, Rounding = 2 })
+            SkeletonTransparency:OnChanged(function(Value) Settings.SkeletonTransparency = Value end)
+        end
+
+        function CreateESP(player)
+            if Drawings.ESP[player] then return end
+            local data = {}
+            data.BoxLines = {}
+            for i = 1, 8 do
+                data.BoxLines[i] = Drawing.new("Line")
+                data.BoxLines[i].Visible = false
+                data.BoxLines[i].Thickness = Settings.BoxThickness
+                data.BoxLines[i].Color = Colors.Enemy
+            end
+            data.Healthbar = Drawing.new("Square")
+            data.Healthbar.Visible = false
+            data.Healthbar.Color = Colors.Health
+            data.Healthbar.Filled = true
+            data.Tracer = Drawing.new("Line")
+            data.Tracer.Visible = false
+            data.Tracer.Color = Colors.Enemy
+            data.Tracer.Thickness = Settings.BoxThickness
+            Drawings.ESP[player] = data
+        end
+
+        function RemoveESP(player)
+            if Drawings.ESP[player] then
+                for _, v in ipairs(Drawings.ESP[player].BoxLines) do v:Remove() end
+                Drawings.ESP[player].Healthbar:Remove()
+                Drawings.ESP[player].Tracer:Remove()
+                Drawings.ESP[player] = nil
+            end
+        end
+
+        function UpdateESP(player)
+            local esp = Drawings.ESP[player]
+            if not esp then return end
+            local char = player.Character
+            if not char or not char:FindFirstChild("HumanoidRootPart") then
+                for _, v in ipairs(esp.BoxLines) do v.Visible = false end
+                esp.Healthbar.Visible = false
+                esp.Tracer.Visible = false
+                return
+            end
+            local root = char.HumanoidRootPart
+            local screenPos, onScreen = Camera:WorldToViewportPoint(root.Position)
+            if not onScreen then
+                for _, v in ipairs(esp.BoxLines) do v.Visible = false end
+                esp.Healthbar.Visible = false
+                esp.Tracer.Visible = false
+                return
+            end
+
+            local rainbow = getRainbowColor()
+            local boxColor = Colors.Enemy
+            local tracerColor = Colors.Enemy
+            if Settings.RainbowEnabled then
+                if Settings.RainbowBoxes then boxColor = rainbow end
+                if Settings.RainbowTracers then tracerColor = rainbow end
+            end
+
+            local boxHeight = 100
+            local boxWidth = 50
+            local x = screenPos.X - boxWidth/2
+            local y = screenPos.Y - boxHeight/2
+
+            for _, v in ipairs(esp.BoxLines) do v.Visible = false end
+            if Settings.Enabled and Settings.BoxESP then
+                if Settings.BoxStyle == "Full" then
+                    esp.BoxLines[1].From = Vector2.new(x, y)
+                    esp.BoxLines[1].To   = Vector2.new(x + boxWidth, y)
+                    esp.BoxLines[2].From = Vector2.new(x, y)
+                    esp.BoxLines[2].To   = Vector2.new(x, y + boxHeight)
+                    esp.BoxLines[3].From = Vector2.new(x + boxWidth, y)
+                    esp.BoxLines[3].To   = Vector2.new(x + boxWidth, y + boxHeight)
+                    esp.BoxLines[4].From = Vector2.new(x, y + boxHeight)
+                    esp.BoxLines[4].To   = Vector2.new(x + boxWidth, y + boxHeight)
+                    for i = 1, 4 do
+                        esp.BoxLines[i].Visible = true
+                        esp.BoxLines[i].Color = boxColor
+                        esp.BoxLines[i].Thickness = Settings.BoxThickness
+                    end
+                elseif Settings.BoxStyle == "Corner" then
+                    local c = 12
+                    esp.BoxLines[1].From = Vector2.new(x, y)
+                    esp.BoxLines[1].To = Vector2.new(x + c, y)
+                    esp.BoxLines[2].From = Vector2.new(x, y)
+                    esp.BoxLines[2].To = Vector2.new(x, y + c)
+                    esp.BoxLines[3].From = Vector2.new(x + boxWidth, y)
+                    esp.BoxLines[3].To = Vector2.new(x + boxWidth - c, y)
+                    esp.BoxLines[4].From = Vector2.new(x + boxWidth, y)
+                    esp.BoxLines[4].To = Vector2.new(x + boxWidth, y + c)
+                    esp.BoxLines[5].From = Vector2.new(x, y + boxHeight)
+                    esp.BoxLines[5].To = Vector2.new(x + c, y + boxHeight)
+                    esp.BoxLines[6].From = Vector2.new(x, y + boxHeight)
+                    esp.BoxLines[6].To = Vector2.new(x, y + boxHeight - c)
+                    esp.BoxLines[7].From = Vector2.new(x + boxWidth, y + boxHeight)
+                    esp.BoxLines[7].To = Vector2.new(x + boxWidth - c, y + boxHeight)
+                    esp.BoxLines[8].From = Vector2.new(x + boxWidth, y + boxHeight)
+                    esp.BoxLines[8].To = Vector2.new(x + boxWidth, y + boxHeight - c)
+                    for i = 1, 8 do
+                        esp.BoxLines[i].Visible = true
+                        esp.BoxLines[i].Color = boxColor
+                        esp.BoxLines[i].Thickness = Settings.BoxThickness
+                    end
+                end
+            end
+
+            if Settings.Enabled and Settings.HealthESP and char:FindFirstChild("Humanoid") then
+                local humanoid = char:FindFirstChild("Humanoid")
+                local health = humanoid.Health
+                local maxHealth = humanoid.MaxHealth
+                local percent = math.clamp(health / maxHealth, 0, 1)
+                esp.Healthbar.Visible = true
+                esp.Healthbar.Size = Vector2.new(6, boxHeight * percent)
+                esp.Healthbar.Position = Vector2.new(x - 10, y + boxHeight * (1-percent))
+                esp.Healthbar.Color = Color3.fromRGB(255 - 255*percent, 255*percent, 0)
+            else
+                esp.Healthbar.Visible = false
+            end
+
+            esp.Tracer.Visible = Settings.Enabled and Settings.TracerESP
+            local origin
+            if Settings.TracerOrigin == "Bottom" then
+                origin = Vector2.new(Camera.ViewportSize.X/2, Camera.ViewportSize.Y)
+            elseif Settings.TracerOrigin == "Top" then
+                origin = Vector2.new(Camera.ViewportSize.X/2, 0)
+            elseif Settings.TracerOrigin == "Mouse" then
+                origin = UserInputService:GetMouseLocation()
+            else
+                origin = Vector2.new(Camera.ViewportSize.X/2, Camera.ViewportSize.Y/2)
+            end
+            esp.Tracer.From = origin
+            esp.Tracer.To = Vector2.new(screenPos.X, screenPos.Y)
+            esp.Tracer.Color = tracerColor
+            esp.Tracer.Thickness = Settings.BoxThickness
+        end
+
+        Players.PlayerAdded:Connect(function(player)
+            if player ~= LocalPlayer then
+                CreateESP(player)
+            end
+        end)
+        Players.PlayerRemoving:Connect(RemoveESP)
+        for _, player in ipairs(Players:GetPlayers()) do
+            if player ~= LocalPlayer then
+                CreateESP(player)
+            end
+        end
+
+        RunService.RenderStepped:Connect(function()
+            for _, player in ipairs(Players:GetPlayers()) do
+                if player ~= LocalPlayer then
+                    UpdateESP(player)
+                end
+            end
+        end)
+
+        -- FIM DO SCRIPT ESP
+    else
+        keyBox.BackgroundColor3 = Color3.fromRGB(255,0,0)
+        print("Key incorreta ❌")
+    end
+end)
+
+discordButton.MouseButton1Click:Connect(function()
+    setclipboard("https://discord.gg/nSVkmuq65")
+    print("Link copiado para o clipboard 🔗")
+end)
+
+-- FIM DO SCRIPT
